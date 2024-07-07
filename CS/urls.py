@@ -1,10 +1,7 @@
 from django.urls import path
-from .views import *
-from django.conf.urls.static import static
-from django.conf import settings
-
-from CS import views
+from . import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
-] 
+    path('predict/', views.predict_view , name='predict'),
+    
+]
