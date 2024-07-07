@@ -1,0 +1,6 @@
+# .gitignore
+logreg.pkl
+meta_clf.pkl
+scaler.pkl
+rf_clf.pkl 
+tree_clf.pkl
