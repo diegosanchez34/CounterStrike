@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
-from .forms import PredictionForm
-from .ml_model import predict, logreg, tree_clf, rf_clf, scaler, meta_clf
+from .forms import PredictionForm, PredictionRFForm
+from .ml_model import predict, predictRF, logreg, tree_clf, rf_clf, scaler, meta_clf, scalerRF, rfc
 import pandas as pd
 import numpy as np
 
@@ -46,4 +46,34 @@ def predict_view(request):
         'form': form,
         'prediction': prediction,
         'prediction_proba': prediction_proba
+    })
+
+
+@csrf_exempt
+def predictRF_view(request):
+    prediction = None
+    prediction_proba = None
+
+    if request.method == 'POST':
+        form = PredictionRFForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            new_data = pd.DataFrame([data])
+
+            # Normalizar los nuevos datos
+            new_data_scaled = scalerRF.transform(new_data)
+
+            # Hacer predicciones utilizando el modelo RFC
+            rf_pred = rfc.predict(new_data_scaled)
+            rf_pred_proba = rfc.predict_proba(new_data_scaled)[:, 1]
+
+            prediction = rf_pred[0]
+            prediction_proba = rf_pred_proba[0]
+    else:
+        form = PredictionRFForm()
+
+    return render(request, 'CS/predictRF.html', {
+        'form': form,
+        'prediction': prediction,
+        'probability': prediction_proba
     })

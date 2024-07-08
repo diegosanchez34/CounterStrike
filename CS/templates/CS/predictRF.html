@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predicción con Random Forest</title>
+</head>
+<body>
+    <h1>Ingresar Datos para Predicción</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Predecir</button>
+    </form>
+    {% if prediction is not None %}
+        <h2>Resultado de la Predicción</h2>
+        <p>Predicción: {{ prediction }}</p>
+        <p>Probabilidad: {{ probability }}</p>
+    {% endif %}
+</body>
+</html>

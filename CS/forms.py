@@ -14,3 +14,16 @@ class PredictionForm(forms.Form):
     TeamStartingEquipmentValue = forms.IntegerField(label='Team Starting Equipment Value')
     MatchKills = forms.IntegerField(label='Match Kills')
     MatchAssists = forms.IntegerField(label='Match Assists')
+
+class PredictionRFForm(forms.Form):
+    Team = forms.IntegerField(label='Team')
+    Map = forms.IntegerField(label='Map')
+    RoundId = forms.IntegerField(label='RoundId')
+    MatchId = forms.IntegerField(label='MatchId')
+    Survived = forms.IntegerField(label='Survived')
+    RoundKills = forms.IntegerField(label='RoundKills')
+    RoundStartingEquipmentValue = forms.IntegerField(label='RoundStartingEquipmentValue')
+    TeamStartingEquipmentValue = forms.IntegerField(label='TeamStartingEquipmentValue')
+    MatchKills = forms.IntegerField(label='MatchKills')
+    MatchAssists = forms.IntegerField(label='MatchAssists')
+    MatchHeadshots = forms.IntegerField(label='MatchHeadshots')
