@@ -6,6 +6,9 @@ from .ml_model import predict, logreg, tree_clf, rf_clf, scaler, meta_clf
 import pandas as pd
 import numpy as np
 
+def index(request):
+    return render(request, 'index.html')
+
 @csrf_exempt
 def predict_view(request):
     prediction = None
