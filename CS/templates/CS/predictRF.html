@@ -2,18 +2,22 @@
 <html>
 <head>
     <title>Predicción con Random Forest</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Ingresar Datos para Predicción</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Predecir</button>
-    </form>
-    {% if prediction is not None %}
-        <h2>Resultado de la Predicción</h2>
-        <p>Predicción: {{ prediction }}</p>
-        <p>Probabilidad: {{ probability }}</p>
-    {% endif %}
+    <div class="container mt-5">
+        <h1>Ingresar Datos para Predicción</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Predecir</button>
+        </form>
+        {% if prediction is not None %}
+            <h2>Resultado de la Predicción</h2>
+            <p>Predicción: {{ prediction }}</p>
+            <p>Probabilidad: {{ probability }}</p>
+        {% endif %}
+    </div>
+    
 </body>
 </html>

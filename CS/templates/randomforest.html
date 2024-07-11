@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>Random Forest Page</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
     <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
@@ -17,7 +17,7 @@
         <button id="cerrarModal" class="cerrar-modal">X</button>
         <div class="modal-contenido">
             <div class="container">
-                <h4 class="mt-3 ml-2 mb-3">Formulario de predicción</h4>
+                <h4 class="mt-3 ml-2 mb-3">Formulario de predicción con Random Forest</h4>
                 <form method="post">
                     {% csrf_token %}
                     {% csrf_token %}
@@ -25,8 +25,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    {{ form.InternalTeamId.label_tag }}                           
-                                    {{ form.InternalTeamId }} 
+                                    {{ form.Team.label_tag }}                           
+                                    {{ form.Team }} 
                                 </div>                                  
                             </div>                        
                         </div>
@@ -41,14 +41,6 @@
                                     {{ form.RoundKills }}
                                 </div>
                                 <div class="form-group">
-                                    {{ form.RoundFlankKills.label_tag }}
-                                    {{ form.RoundFlankKills }}
-                                </div>
-                                <div class="form-group">
-                                    {{ form.RoundHeadshots.label_tag }}
-                                    {{ form.RoundHeadshots }}
-                                </div>
-                                <div class="form-group">
                                     {{ form.RoundStartingEquipmentValue.label_tag }}
                                     {{ form.RoundStartingEquipmentValue }}
                                 </div>
@@ -56,21 +48,13 @@
                                     {{ form.TeamStartingEquipmentValue.label_tag }}
                                     {{ form.TeamStartingEquipmentValue }}
                                 </div>
+                                <div class="form-group">
+                                    {{ form.Map.label_tag }}
+                                    {{ form.Map }}
+                                </div>
                             </div>
                             
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    {{ form.PrimaryAssaultRifle.label_tag }}
-                                    {{ form.PrimaryAssaultRifle }}
-                                </div>
-                                <div class="form-group">
-                                    {{ form.PrimarySniperRifle.label_tag }}
-                                    {{ form.PrimarySniperRifle }}
-                                </div>
-                                <div class="form-group">
-                                    {{ form.PrimaryPistol.label_tag }}
-                                    {{ form.PrimaryPistol }}
-                                </div>
                                 <div class="form-group">
                                     {{ form.MatchId.label_tag }}
                                     {{ form.MatchId }}
@@ -82,6 +66,14 @@
                                 <div class="form-group">
                                     {{ form.MatchAssists.label_tag }}
                                     {{ form.MatchAssists }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.MatchHeadshots.label_tag }}
+                                    {{ form.MatchHeadshots }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form.Survived.label_tag }}
+                                    {{ form.Survived }}
                                 </div>
                             </div>                            
                         </div>                    
@@ -118,7 +110,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="probabilidad">Probabilidad</label>
-                                <input class="form-control" type="text" id="probabilidad" value="{{ prediction_proba }}%" readonly>   
+                                <input class="form-control" type="text" id="probabilidad" value="{{ probability }}%" readonly>   
                             </div>                                  
                         </div>                        
                     </div>              
@@ -130,7 +122,7 @@
     <ul class="menu">
         <li><a href="#" id="abrirModal">Nueva predicción</a></li>
         <li><a href="#" id="abrirModal2">Resultados</a></li>
-        <li><a href="randomforest" >Predecir con Random Forest</a></li>
+        <li><a href="index" id="abrirModal2">Predicción normal</a></li>
         <img src="{% static 'images/logo.png' %}" style="width: 300px">      
     </ul>
 

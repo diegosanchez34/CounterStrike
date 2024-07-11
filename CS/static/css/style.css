@@ -8,7 +8,7 @@ html, body {
 }
 
 body {
-    background-size: cover;
+    background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh;
@@ -16,10 +16,116 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
     color: white;
-    text-align: center;
 }
 
-h1 {
-    margin-top: 20%;
-    font-size: 3em;
+ul {
+    list-style-type: none;
+    padding-left: 10px;
+}
+
+li {    
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color: #fffe30;
+    text-decoration: none;
+}
+
+.menu {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+}
+
+#icono1{
+    display: none;
+}
+
+#corneta{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+#miModal {    
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: auto;
+    max-height: 90%;
+    background-color: #4b5644;
+    color: white;
+    max-width: 80%; /* Ajusta según tus necesidades */
+    margin: 0 auto; /* Centra horizontalmente */
+    overflow: auto;
+}
+
+  .cerrar-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    background: none;
+    border: none;
+    color: #8b9684;
+    border: 2px solid #6e7865;
+  }
+
+  .cerrar-modal:hover {
+    background: #8b9684;
+    color: #4b5644;
+  }
+
+  .formulario {
+    margin: 0;
+    padding: 20px;
+    padding-bottom: 5px;
+    border: 2px solid #6e7865;
+
+  }
+
+.formulario input[type="text"],
+.formulario input[type="email"],
+.formulario input[type="password"],
+.formulario select {
+  background-color: #3d4536;
+  color: white;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.form-group {
+  margin-bottom: 15px; /* Ajusta el valor según tus necesidades */
+}
+
+.botones{
+  width: 100%;
+}
+
+#miModal2 {    
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: auto;
+  max-height: 90%;
+  background-color: #4b5644;
+  color: white;
+  max-width: 80%; /* Ajusta según tus necesidades */
+  margin: 0 auto; /* Centra horizontalmente */
+  overflow: auto;
+  border: 2px solid #6e7865;
 }
